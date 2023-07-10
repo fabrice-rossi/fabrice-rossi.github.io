@@ -1,5 +1,15 @@
 ---
 title: "About"
+about:
+  template: marquee
+  image: diving.png
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/fabrice-rossi
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/fabrice_rossi
 ---
 
-[Fabrice Rossi's](http://apiacoa.org/index.en.html) GitHub oriented web site.
+[Fabrice Rossi's](http://apiacoa.org/index.en.html) [GitHub](https://github.com/fabrice-rossi) oriented web site.
