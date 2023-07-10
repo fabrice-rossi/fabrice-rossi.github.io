@@ -3,11 +3,17 @@ project:
 
 website:
   title: "Fabrice Rossi"
+  site-url: https://fabrice-rossi.github.io/
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: blog/index.qmd
+        text: Developer Diary
       - about.qmd
+    right:
+      - icon: rss
+        href: blog/index.xml
 
 format:
   html:

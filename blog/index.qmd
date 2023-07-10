@@ -1,0 +1,10 @@
+---
+title: "Developer Diary"
+listing: 
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: 
+    categories: [news]
+---
