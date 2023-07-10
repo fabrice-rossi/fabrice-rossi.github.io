@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fabrice-rossi.github.io/index.html</loc>
-    <lastmod>2023-07-08T12:03:26.516Z</lastmod>
+    <lastmod>2023-07-10T09:31:29.243Z</lastmod>
   </url>
   <url>
     <loc>https://fabrice-rossi.github.io/about.html</loc>
-    <lastmod>2023-07-08T12:03:26.756Z</lastmod>
+    <lastmod>2023-07-10T09:31:29.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fabrice-rossi.github.io/blog/index.html</loc>
+    <lastmod>2023-07-10T09:31:29.775Z</lastmod>
   </url>
 </urlset>
