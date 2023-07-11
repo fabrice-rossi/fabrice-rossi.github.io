@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-07-09">
-<meta name="description" content="Mixmvlc is available on the CRAN!">
+<meta name="description" content="Mixvlmc 0.1.1 is available on the CRAN!">
 
 <title>Fabrice Rossi - First Release of mixvlmc</title>
 <style>
@@ -127,12 +127,13 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-category">R</div>
     <div class="quarto-category">CRAN</div>
     <div class="quarto-category">mixvlmc</div>
+    <div class="quarto-category">markov model</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Mixmvlc is available on the CRAN!
+    Mixvlmc 0.1.1 is available on the CRAN!
   </div>
 </div>
 
@@ -153,7 +154,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>I am proud to announce the first release of mixvlmc.</p>
+<p>I am proud to announce the first release of <a href="https://cran.r-project.org/package=mixvlmc">mixvlmc</a>, version 0.1.1. This R package provides a collection of tools to estimate and study:</p>
+<ul>
+<li>Variable Length Markov Chains (based on <a href="https://dx.doi.org/10.1214/aos/1018031204">Bühlmann, P. and Wyner, A. J. (1999), Variable length Markov chains. Ann. Statist. 27 (2) 480-513</a>)</li>
+<li>Variable Length Markov Chains with covariates (based on <a href="https://doi.org/10.1111/jtsa.12615">Zanin Zambom, A., Kim, S. and Lopes Garcia, N. (2022), Variable length Markov chain with exogenous covariates. J. Time Ser. Anal., 43 (2) 312-328</a>)</li>
+</ul>
+<p>The package comes with an extensive test suite and a <a href="https://fabrice-rossi.github.io/mixvlmc/">complete documentation</a>, including four vignettes on different complex aspects of these models. It includes contributions by Hugo Le Picard and Guénolé Joubioux.</p>
+<p>Compared to <a href="https://cran.r-project.org/package=VLMC">VLMC</a> and <a href="https://cran.r-project.org/package=PST">PST</a>, <a href="https://cran.r-project.org/package=mixvlmc">mixvlmc</a> has two major advantages:</p>
+<ul>
+<li>it includes the support of covariables;</li>
+<li>it supports fast BIC/AIC based automatic model selection with a post-pruning strategy.</li>
+</ul>
+<p><code>mixvlmc</code> is significantly faster than <code>PST</code> but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by <code>PST</code> such as its very complete set of visual representation.</p>
+<p><code>mixvlmc</code> is not as fast as <code>VLMC</code> but supports arbitrary large state spaces.</p>
 
 
 

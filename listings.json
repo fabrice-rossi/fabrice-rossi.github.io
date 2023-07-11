@@ -1,6 +1,8 @@
 [
   {
     "listing": "/blog/index.html",
-    "items": []
+    "items": [
+      "/blog/posts/mixvlmc-0-1.html"
+    ]
   }
 ]

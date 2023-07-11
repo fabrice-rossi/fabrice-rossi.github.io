@@ -18,6 +18,13 @@
     "href": "blog/index.html",
     "title": "Developer Diary",
     "section": "",
-    "text": "No matching items"
+    "text": "First Release of mixvlmc\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nR\n\n\nCRAN\n\n\nmixvlmc\n\n\nmarkov model\n\n\n\n\nMixvlmc 0.1.1 is available on the CRAN!\n\n\n\n\n\n\nJul 9, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-1.html",
+    "href": "blog/posts/mixvlmc-0-1.html",
+    "title": "First Release of mixvlmc",
+    "section": "",
+    "text": "I am proud to announce the first release of mixvlmc, version 0.1.1. This R package provides a collection of tools to estimate and study:\n\nVariable Length Markov Chains (based on Bühlmann, P. and Wyner, A. J. (1999), Variable length Markov chains. Ann. Statist. 27 (2) 480-513)\nVariable Length Markov Chains with covariates (based on Zanin Zambom, A., Kim, S. and Lopes Garcia, N. (2022), Variable length Markov chain with exogenous covariates. J. Time Ser. Anal., 43 (2) 312-328)\n\nThe package comes with an extensive test suite and a complete documentation, including four vignettes on different complex aspects of these models. It includes contributions by Hugo Le Picard and Guénolé Joubioux.\nCompared to VLMC and PST, mixvlmc has two major advantages:\n\nit includes the support of covariables;\nit supports fast BIC/AIC based automatic model selection with a post-pruning strategy.\n\nmixvlmc is significantly faster than PST but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by PST such as its very complete set of visual representation.\nmixvlmc is not as fast as VLMC but supports arbitrary large state spaces."
   }
 ]
