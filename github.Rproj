@@ -14,3 +14,8 @@ LaTeX: pdfLaTeX
 
 AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
+
+MarkdownWrap: Column
+MarkdownWrapAtColumn: 80
+
+SpellingDictionary: en_GB
