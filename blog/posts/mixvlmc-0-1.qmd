@@ -1,0 +1,43 @@
+---
+title: "First Release of mixvlmc"
+description: "Mixvlmc 0.1.1 is available on the CRAN!"
+date: "07/09/2023"
+categories:
+  - news
+  - code
+  - R
+  - CRAN
+  - mixvlmc
+  - markov model
+---
+
+I am proud to announce the first release of
+[mixvlmc](https://cran.r-project.org/package=mixvlmc), version 0.1.1. This R
+package provides a collection of tools to estimate and study:
+
+-   Variable Length Markov Chains (based on [Bühlmann, P. and Wyner, A. J.
+    (1999), Variable length Markov chains. Ann. Statist. 27 (2)
+    480-513](https://dx.doi.org/10.1214/aos/1018031204))
+-   Variable Length Markov Chains with covariates (based on [Zanin Zambom, A.,
+    Kim, S. and Lopes Garcia, N. (2022), Variable length Markov chain with
+    exogenous covariates. J. Time Ser. Anal., 43 (2)
+    312-328](https://doi.org/10.1111/jtsa.12615))
+
+The package comes with an extensive test suite and a [complete
+documentation](https://fabrice-rossi.github.io/mixvlmc/), including four
+vignettes on different complex aspects of these models. It includes contributions 
+by Hugo Le Picard and Guénolé Joubioux. 
+
+Compared to [VLMC](https://cran.r-project.org/package=VLMC) and
+[PST](https://cran.r-project.org/package=PST),
+[mixvlmc](https://cran.r-project.org/package=mixvlmc) has two major advantages:
+
+-   it includes the support of covariables;
+-   it supports fast BIC/AIC based automatic model selection with a post-pruning
+    strategy.
+
+`mixvlmc` is significantly faster than `PST` but lacks its capability of fitting
+a single VLMC to a collection of sequences. It also lacks some of the tools
+provided by `PST` such as its very complete set of visual representation.
+
+`mixvlmc` is not as fast as `VLMC` but supports arbitrary large state spaces. 
