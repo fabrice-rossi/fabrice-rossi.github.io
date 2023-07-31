@@ -1,5 +1,5 @@
 ---
-title: "First Release of mixvlmc"
+title: "First release of mixvlmc"
 description: "Mixvlmc 0.1.1 is available on the CRAN!"
 date: "07/09/2023"
 categories:
@@ -38,6 +38,6 @@ Compared to [VLMC](https://cran.r-project.org/package=VLMC) and
 
 `mixvlmc` is significantly faster than `PST` but lacks its capability of fitting
 a single VLMC to a collection of sequences. It also lacks some of the tools
-provided by `PST` such as its very complete set of visual representation.
+provided by `PST` such as its very complete set of visual representations.
 
 `mixvlmc` is not as fast as `VLMC` but supports arbitrary large state spaces. 
