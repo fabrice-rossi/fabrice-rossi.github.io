@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Developer Diary",
+    "section": "",
+    "text": "Second release of mixvlmc\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nR\n\n\nCRAN\n\n\nmixvlmc\n\n\nmarkov model\n\n\n\n\nMixvlmc 0.2.0 is available on the CRAN!\n\n\n\n\n\n\nOct 29, 2023\n\n\n\n\n\n\n  \n\n\n\n\nFirst release of mixvlmc\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nR\n\n\nCRAN\n\n\nmixvlmc\n\n\nmarkov model\n\n\n\n\nMixvlmc 0.1.1 is available on the CRAN!\n\n\n\n\n\n\nJul 9, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-1.html",
+    "href": "blog/posts/mixvlmc-0-1.html",
+    "title": "First release of mixvlmc",
+    "section": "",
+    "text": "I am proud to announce the first release of mixvlmc, version 0.1.1. This R package provides a collection of tools to estimate and study:\n\nVariable Length Markov Chains (based on Bühlmann, P. and Wyner, A. J. (1999), Variable length Markov chains. Ann. Statist. 27 (2) 480-513)\nVariable Length Markov Chains with covariates (based on Zanin Zambom, A., Kim, S. and Lopes Garcia, N. (2022), Variable length Markov chain with exogenous covariates. J. Time Ser. Anal., 43 (2) 312-328)\n\nThe package comes with an extensive test suite and a complete documentation, including four vignettes on different complex aspects of these models. It includes contributions by Hugo Le Picard and Guénolé Joubioux.\nCompared to VLMC and PST, mixvlmc has two major advantages:\n\nit includes the support of covariables;\nit supports fast BIC/AIC based automatic model selection with a post-pruning strategy.\n\nmixvlmc is significantly faster than PST but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by PST such as its very complete set of visual representations.\nmixvlmc is not as fast as VLMC but supports arbitrary large state spaces."
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-2.html",
+    "href": "blog/posts/mixvlmc-0-2.html",
+    "title": "Second release of mixvlmc",
+    "section": "",
+    "text": "I am proud to announce the second release of mixvlmc, version 0.2.0. This R package provides a collection of tools to estimate and study Variable Length Markov Chains (VLMC) with or without external covariates.\nSince the initial release, about 4 months ago, the package has made significant progress in terms of usability and computational efficiency. This new release has also been the opportunity to revisit some fundamental aspects of the VLMC."
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-2.html#new-features",
+    "href": "blog/posts/mixvlmc-0-2.html#new-features",
+    "title": "Second release of mixvlmc",
+    "section": "New features",
+    "text": "New features\nApart from bug fixes, this second release introduces several new features:\n\nprediction functions for one step ahead prediction of time series based on (CO)VLMC (and described in a new vignette): predict.vlmc() and predict.covlmc();\nburn in period in simulation functions;\ngraphical representations for tune_vlmc() and tune_covlmc() results;\na completely new way of exploring contexts via a ctx_node class: using the new find_sequence() function, the user obtains a representation of the corresponding node in the context tree. The node can then be queried with a collection of new functions to get information (such as the conditional distribution associated to the context) and to navigate the context tree (extending the context or truncating it)."
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-2.html#computational-efficiency",
+    "href": "blog/posts/mixvlmc-0-2.html#computational-efficiency",
+    "title": "Second release of mixvlmc",
+    "section": "Computational efficiency",
+    "text": "Computational efficiency\nOne of the main change of this new version is the inclusion of a completely rewamped way of building context trees that uses a better algorithm (based on suffix trees) and is implemented in C++ (saving time and memory). By default, the package still uses the former R implementation but a new option mixvlmc.backend can be used to switch to the C++ implementation. COVLMC do not benefit yet from this new implementation and it is therefore considered as experimental."
+  },
+  {
+    "objectID": "blog/posts/mixvlmc-0-2.html#likelihood-calculation",
+    "href": "blog/posts/mixvlmc-0-2.html#likelihood-calculation",
+    "title": "Second release of mixvlmc",
+    "section": "Likelihood calculation",
+    "text": "Likelihood calculation\nA minor issue with Markov model is the definition of the likelihood function. Given a finite time series \\((x_i)_{1\\leq i\\leq n}\\), we cannot compute the conditional probability of say \\(x_1\\) as we did not observe \\(x_0\\) (for a simple Markov chain of order 1). In general, we use a form of truncated likelihood in the sense that we exclude the first few observations from the calculation.\nIn the case of VLMC, this can be problematic as the number of excluded observations may well be of order \\(\\log n\\) for instance. Theoretical results show that this does not impair recoverability of the true model with e.g. the BIC, but this concerns only asymptotic behaviour. In addition, the practical use of VLMC for simulation or prediction emphasized the need for understanding how to handle the initial values that are not directly modelled.\nThe new version of mixvlmc addresses those aspects in a more principled manner and its documentation includes a lengthy discussion on likelihood functions and related matters in a vignette. This document owes a lot to discussions with my (former) colleagues Aurélien Garivier and Julien Stoehr. Many thanks to them!"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Fabrice Rossi",
@@ -12,19 +54,5 @@
     "title": "About",
     "section": "",
     "text": "Fabrice Rossi’s GitHub oriented web site."
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Developer Diary",
-    "section": "",
-    "text": "First Release of mixvlmc\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nR\n\n\nCRAN\n\n\nmixvlmc\n\n\nmarkov model\n\n\n\n\nMixvlmc 0.1.1 is available on the CRAN!\n\n\n\n\n\n\nJul 9, 2023\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/mixvlmc-0-1.html",
-    "href": "blog/posts/mixvlmc-0-1.html",
-    "title": "First Release of mixvlmc",
-    "section": "",
-    "text": "I am proud to announce the first release of mixvlmc, version 0.1.1. This R package provides a collection of tools to estimate and study:\n\nVariable Length Markov Chains (based on Bühlmann, P. and Wyner, A. J. (1999), Variable length Markov chains. Ann. Statist. 27 (2) 480-513)\nVariable Length Markov Chains with covariates (based on Zanin Zambom, A., Kim, S. and Lopes Garcia, N. (2022), Variable length Markov chain with exogenous covariates. J. Time Ser. Anal., 43 (2) 312-328)\n\nThe package comes with an extensive test suite and a complete documentation, including four vignettes on different complex aspects of these models. It includes contributions by Hugo Le Picard and Guénolé Joubioux.\nCompared to VLMC and PST, mixvlmc has two major advantages:\n\nit includes the support of covariables;\nit supports fast BIC/AIC based automatic model selection with a post-pruning strategy.\n\nmixvlmc is significantly faster than PST but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by PST such as its very complete set of visual representation.\nmixvlmc is not as fast as VLMC but supports arbitrary large state spaces."
   }
 ]

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fabrice-rossi.github.io/index.html</loc>
-    <lastmod>2023-07-11T15:22:23.581Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fabrice-rossi.github.io/about.html</loc>
-    <lastmod>2023-07-11T15:22:23.857Z</lastmod>
-  </url>
-  <url>
     <loc>https://fabrice-rossi.github.io/blog/index.html</loc>
-    <lastmod>2023-07-11T15:22:24.229Z</lastmod>
+    <lastmod>2023-10-29T07:36:09.589Z</lastmod>
   </url>
   <url>
     <loc>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-1.html</loc>
-    <lastmod>2023-07-11T15:22:24.537Z</lastmod>
+    <lastmod>2023-10-29T07:36:09.753Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-2.html</loc>
+    <lastmod>2023-10-29T07:36:09.933Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fabrice-rossi.github.io/index.html</loc>
+    <lastmod>2023-10-29T07:36:10.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fabrice-rossi.github.io/about.html</loc>
+    <lastmod>2023-10-29T07:36:10.197Z</lastmod>
   </url>
 </urlset>

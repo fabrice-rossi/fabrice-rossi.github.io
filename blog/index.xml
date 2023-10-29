@@ -9,10 +9,52 @@
 <link>https://fabrice-rossi.github.io/blog/index.html</link>
 <atom:link href="https://fabrice-rossi.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.340</generator>
-<lastBuildDate>Sat, 08 Jul 2023 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.3.333</generator>
+<lastBuildDate>Sat, 28 Oct 2023 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>First Release of mixvlmc</title>
+  <title>Second release of mixvlmc</title>
+  <link>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-2.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>I am proud to announce the second release of <a href="https://cran.r-project.org/package=mixvlmc">mixvlmc</a>, version 0.2.0. This R package provides a collection of tools to estimate and study Variable Length Markov Chains (VLMC) with or without external covariates.</p>
+<p>Since the initial release, about 4 months ago, the package has made significant progress in terms of usability and computational efficiency. This new release has also been the opportunity to revisit some fundamental aspects of the VLMC.</p>
+<section id="new-features" class="level2">
+<h2 class="anchored" data-anchor-id="new-features">New features</h2>
+<p>Apart from bug fixes, this second release introduces several new features:</p>
+<ul>
+<li>prediction functions for one step ahead prediction of time series based on (CO)VLMC (and described in a new <a href="https://fabrice-rossi.github.io/mixvlmc/articles/prediction.html">vignette</a>): <a href="https://fabrice-rossi.github.io/mixvlmc/reference/predict.vlmc.html">predict.vlmc()</a> and <a href="https://fabrice-rossi.github.io/mixvlmc/reference/predict.covlmc.html">predict.covlmc()</a>;</li>
+<li>burn in period in simulation functions;</li>
+<li>graphical representations for <code>tune_vlmc()</code> and <code>tune_covlmc()</code> results;</li>
+<li>a completely new way of exploring contexts via a <code>ctx_node</code> class: using the new <a href="https://fabrice-rossi.github.io/mixvlmc/reference/find_sequence.html">find_sequence()</a> function, the user obtains a representation of the corresponding node in the context tree. The node can then be queried with a collection of new functions to get information (such as the conditional distribution associated to the context) and to navigate the context tree (extending the context or truncating it).</li>
+</ul>
+</section>
+<section id="computational-efficiency" class="level2">
+<h2 class="anchored" data-anchor-id="computational-efficiency">Computational efficiency</h2>
+<p>One of the main change of this new version is the inclusion of a completely rewamped way of building context trees that uses a better algorithm (based on suffix trees) and is implemented in C++ (saving time and memory). By default, the package still uses the former R implementation but a new option <code>mixvlmc.backend</code> can be used to switch to the C++ implementation. COVLMC do not benefit yet from this new implementation and it is therefore considered as experimental.</p>
+</section>
+<section id="likelihood-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="likelihood-calculation">Likelihood calculation</h2>
+<p>A minor issue with Markov model is the definition of the likelihood function. Given a finite time series <img src="https://latex.codecogs.com/png.latex?(x_i)_%7B1%5Cleq%20i%5Cleq%20n%7D">, we cannot compute the conditional probability of say <img src="https://latex.codecogs.com/png.latex?x_1"> as we did not observe <img src="https://latex.codecogs.com/png.latex?x_0"> (for a simple Markov chain of order 1). In general, we use a form of truncated likelihood in the sense that we exclude the first few observations from the calculation.</p>
+<p>In the case of VLMC, this can be problematic as the number of excluded observations may well be of order <img src="https://latex.codecogs.com/png.latex?%5Clog%20n"> for instance. Theoretical results show that this does not impair recoverability of the true model with e.g.&nbsp;the BIC, but this concerns only asymptotic behaviour. In addition, the practical use of VLMC for simulation or prediction emphasized the need for understanding how to handle the initial values that are not directly modelled.</p>
+<p>The new version of <code>mixvlmc</code> addresses those aspects in a more principled manner and its documentation includes a lengthy discussion on likelihood functions and related matters in a <a href="https://fabrice-rossi.github.io/mixvlmc/articles/likelihood.html">vignette</a>. This document owes a lot to discussions with my (former) colleagues <a href="https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index67da.html?q=node/34">Aurélien Garivier</a> and <a href="https://www.ceremade.dauphine.fr/~stoehr/">Julien Stoehr</a>. Many thanks to them!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>R</category>
+  <category>CRAN</category>
+  <category>mixvlmc</category>
+  <category>markov model</category>
+  <guid>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-2.html</guid>
+  <pubDate>Sat, 28 Oct 2023 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>First release of mixvlmc</title>
   <link>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-1.html</link>
   <description><![CDATA[ 
 
@@ -29,7 +71,7 @@
 <li>it includes the support of covariables;</li>
 <li>it supports fast BIC/AIC based automatic model selection with a post-pruning strategy.</li>
 </ul>
-<p><code>mixvlmc</code> is significantly faster than <code>PST</code> but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by <code>PST</code> such as its very complete set of visual representation.</p>
+<p><code>mixvlmc</code> is significantly faster than <code>PST</code> but lacks its capability of fitting a single VLMC to a collection of sequences. It also lacks some of the tools provided by <code>PST</code> such as its very complete set of visual representations.</p>
 <p><code>mixvlmc</code> is not as fast as <code>VLMC</code> but supports arbitrary large state spaces.</p>
 
 
