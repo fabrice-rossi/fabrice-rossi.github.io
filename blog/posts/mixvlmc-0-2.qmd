@@ -1,0 +1,69 @@
+---
+title: "Second release of mixvlmc"
+description: "Mixvlmc 0.2.0 is available on the CRAN!"
+date: "10/29/2023"
+categories:
+  - news
+  - code
+  - R
+  - CRAN
+  - mixvlmc
+  - markov model
+---
+
+I am proud to announce the second release of 
+[mixvlmc](https://cran.r-project.org/package=mixvlmc), version 0.2.0.
+This R package provides a collection of tools to estimate and study 
+Variable Length Markov Chains (VLMC) with or without external covariates.
+
+Since the initial release, about 4 months ago, the package has made
+significant progress in terms of usability and computational efficiency.
+This new release has also been the opportunity to revisit some fundamental
+aspects of the VLMC. 
+
+## New features
+Apart from bug fixes, this second release introduces several new features:
+
+-  prediction functions for one step ahead prediction of time series based
+  on (CO)VLMC (and described in a new [vignette](https://fabrice-rossi.github.io/mixvlmc/articles/prediction.html)): [predict.vlmc()](https://fabrice-rossi.github.io/mixvlmc/reference/predict.vlmc.html) and [predict.covlmc()](https://fabrice-rossi.github.io/mixvlmc/reference/predict.covlmc.html);
+-  burn in period in simulation functions;
+-  graphical representations for `tune_vlmc()` and `tune_covlmc()` results;
+-  a completely new way of exploring contexts via a `ctx_node` class: using
+  the new [find_sequence()](https://fabrice-rossi.github.io/mixvlmc/reference/find_sequence.html) 
+  function, the user obtains a representation of the corresponding node in the
+  context tree. The node can then be queried with a collection of new functions
+  to get information (such as the conditional distribution associated to the
+  context) and to navigate the context tree (extending the context or 
+  truncating it).
+ 
+## Computational efficiency
+One of the main change of this new version is the inclusion of a completely
+rewamped way of building context trees that uses a better algorithm (based on
+suffix trees) and is implemented in C++ (saving time and memory). By default, 
+the package still uses the former R implementation but a new option
+`mixvlmc.backend` can be used to switch to the C++ implementation. COVLMC do
+not benefit yet from this new implementation and it is therefore considered
+as experimental. 
+
+## Likelihood calculation
+A minor issue with Markov model is the definition of the likelihood function.
+Given a finite time series $(x_i)_{1\leq i\leq n}$, we cannot compute the 
+conditional probability of say $x_1$ as we did not observe $x_0$ (for a simple
+Markov chain of order 1). In general, we use a form of truncated likelihood in
+the sense that we exclude the first few observations from the calculation. 
+
+In the case of VLMC, this can be problematic as the number of excluded 
+observations may well be of order $\log n$ for instance. Theoretical results
+show that this does not impair recoverability of the true model with e.g. the 
+BIC, but this concerns only asymptotic behaviour. In addition, the practical 
+use of VLMC for simulation or prediction emphasized the need for understanding
+how to handle the initial values that are not directly modelled. 
+
+The new version of `mixvlmc` addresses those aspects in a more principled 
+manner and its documentation includes a lengthy discussion on likelihood 
+functions and related matters in a
+[vignette](https://fabrice-rossi.github.io/mixvlmc/articles/likelihood.html). 
+This document owes a lot to discussions with my (former) colleagues 
+[Aurélien Garivier](https://perso.ens-lyon.fr/aurelien.garivier/www.math.univ-toulouse.fr/_agarivie/index67da.html?q=node/34) 
+and [Julien Stoehr](https://www.ceremade.dauphine.fr/~stoehr/). 
+Many thanks to them!
