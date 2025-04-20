@@ -6,15 +6,75 @@
       version="2.0">
 <channel>
 <title>Fabrice Rossi</title>
-<link>https://fabrice-rossi.github.io/blog/index.html#category=news</link>
+<link>https://fabrice-rossi.github.io/blog/#category=news</link>
 <atom:link href="https://fabrice-rossi.github.io/blog/index-news.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.333</generator>
-<lastBuildDate>Sat, 28 Oct 2023 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.39</generator>
+<lastBuildDate>Sat, 19 Apr 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>New package in alpha: blvim</title>
+  <link>https://fabrice-rossi.github.io/blog/posts/blvim-alpha.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am working on a new package, <a href="https://github.com/fabrice-rossi/blvim">blvim</a>, currently only available on github. The goal of the package is to provide a fast implementation of Alan Wilson’s Boltzmann–Lotka–Volterra (BLV) interaction model as described in <a href="http://dx.doi.org/10.1098/rsif.2007.1288">this paper</a>.</p>
+<section id="boltzmannlotkavolterra-interaction-model" class="level2">
+<h2 class="anchored" data-anchor-id="boltzmannlotkavolterra-interaction-model">Boltzmann–Lotka–Volterra Interaction Model</h2>
+<p>The model is based on Wilson’s maximum entropy spatial interaction models. Those models were designed in the late 60s to analyse trips or exchanges between origin locations and destination locations. In the BLV approach, one looks for an equilibrium state in which the attractiveness of the destination locations is proportional to the flow they receive.</p>
+<section id="wilsons-maximal-entropy-production-constrained-model" class="level3">
+<h3 class="anchored" data-anchor-id="wilsons-maximal-entropy-production-constrained-model">Wilson’s maximal entropy production constrained model</h3>
+<p>This model computes flows between origin locations and destination locations using a maximum entropy principle. It uses the following data and parameters:</p>
+<ul>
+<li>a cost matrix <img src="https://latex.codecogs.com/png.latex?c"> of size <img src="https://latex.codecogs.com/png.latex?n%5Ctimes%20p">: <img src="https://latex.codecogs.com/png.latex?c_%7Bij%7D"> is the cost of having a “unitary” flow from origin location <img src="https://latex.codecogs.com/png.latex?i"> to destination <img src="https://latex.codecogs.com/png.latex?j"> (a classical choice it the distance between those locations)</li>
+<li>a vector <img src="https://latex.codecogs.com/png.latex?X"> of size <img src="https://latex.codecogs.com/png.latex?n"> that specifies the production constraints at the <img src="https://latex.codecogs.com/png.latex?n"> origin locations</li>
+<li>a vector <img src="https://latex.codecogs.com/png.latex?Z"> of size <img src="https://latex.codecogs.com/png.latex?p"> that specifies the attractivenesses of destination locations</li>
+<li>a return to scale parameter <img src="https://latex.codecogs.com/png.latex?%5Calpha"> that enhance (or reduce if smaller that 1) the attractivenesses of destination locations when they are larger than 1</li>
+<li>the inverse <img src="https://latex.codecogs.com/png.latex?%5Cbeta"> of a cost scale parameter, i.e., costs are multiplied by <img src="https://latex.codecogs.com/png.latex?%5Cbeta"> in the model</li>
+</ul>
+<p>In Wilson’s model, the flow from origin location <img src="https://latex.codecogs.com/png.latex?i"> to destination location <img src="https://latex.codecogs.com/png.latex?j">, <img src="https://latex.codecogs.com/png.latex?Y_%7Bij%7D"> is given by <img src="https://latex.codecogs.com/png.latex?%0AY_%7Bij%7D=%5Cfrac%7BX_iZ_j%5E%7B%5Calpha%7D%5Cexp(-%5Cbeta%0Ac_%7Bij%7D)%7D%7B%5Csum_%7Bk=1%7D%5EpZ_k%5E%7B%5Calpha%7D%5Cexp(-%5Cbeta%20c_%7Bik%7D)%7D.%0A"> The model is production constrained because <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20i,%5Cquad%20X_i=%5Csum_%7Bj=1%7D%5E%7Bp%7DY_%7Bij%7D,%0A"> that is the origin location <img src="https://latex.codecogs.com/png.latex?i"> sends a total flow of exactly <img src="https://latex.codecogs.com/png.latex?X_i">.</p>
+</section>
+<section id="blv-model" class="level3">
+<h3 class="anchored" data-anchor-id="blv-model">BLV model</h3>
+<p>The core assumption of the BLV model is that the destination flows should be proportional to the attractivenesses. Given a flow matrix <img src="https://latex.codecogs.com/png.latex?Y">, the destination flows are collected in a vector <img src="https://latex.codecogs.com/png.latex?D"> of size p, with <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%5Cquad%20D_j=%5Csum_%7Bi=1%7D%5E%7Bn%7DY_%7Bij%7D.%0A"> At equilibrium, we want <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%5Cquad%20D_j=%5Ckappa%20Z_j,%0A"> for a given proportionality constant <img src="https://latex.codecogs.com/png.latex?%5Ckappa">. To solve this fixed point equation in <img src="https://latex.codecogs.com/png.latex?Z">, we iterate basic updates <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%20Z_j%5E%7Bt+1%7D%20=%20Z_j%5E%7Bt%7D%20+%20%5Cepsilon%20(D%5E%7Bt%7D_j-%5Ckappa%20Z%5E%7Bt%7D_j),%0A"> using as small value for <img src="https://latex.codecogs.com/png.latex?%5Cepsilon"> to avoid instabilities.</p>
+</section>
+<section id="blv-in-archaeology" class="level3">
+<h3 class="anchored" data-anchor-id="blv-in-archaeology">BLV in archaeology</h3>
+<p>This approach has been quite successful in archaeology as seen in this selection of papers:</p>
+<ul>
+<li><a href="https://www.persee.fr/doc/hism_0982-1783_1987_num_2_1_1300">Spatial Interaction and Structural Models in Historical Analysis</a></li>
+<li><a href="https://doi.org/10.1016/j.jas.2012.12.025">Models of settlement hierarchy based on partial evidence</a></li>
+<li><a href="https://doi.org/10.1016/j.jas.2013.12.014">Application of an entropy maximizing and dynamics model for understanding settlement structure</a></li>
+<li><a href="https://doi.org/10.1016/j.jaa.2016.04.006">Evolving settlement patterns, spatial interaction and the socio-political organisation of late Prepalatial south-central Crete</a></li>
+<li><a href="https://doi.org/10.3389/fdigh.2017.00008">Was Thebes Necessary? Contingency in Spatial Modeling</a></li>
+</ul>
+<p>The main strength of the model is that it relies only on distances or travel costs between locations, making it very relevant for ancient mobility when material evidence is scarce. When we have only costs (the <img src="https://latex.codecogs.com/png.latex?c"> matrix), we generally initialise the BLV model with unitary attractivenesses (and productions). This can be refined using for instance the estimated area of locations.</p>
+<p>In my research work, using BLV models is the natural next step after evaluating carefully travel costs with the method presented in my recent paper with <a href="https://orcid.org/0000-0002-5077-5213">Clara Filet</a>: <a href="https://lnkd.in/ejAuZj_F">On the roads and rivers of Late Iron Age Gaul: Adjusting least-cost path analysis to multiple means of transport and imprecise data</a>.</p>
+</section>
+</section>
+<section id="state-of-the-package" class="level2">
+<h2 class="anchored" data-anchor-id="state-of-the-package">State of the package</h2>
+<p>The alpha version of the <a href="https://github.com/fabrice-rossi/blvim">blvim</a> should be reasonably bug free (it is based on a collection of earlier scripts that were validated through heavy usage during Clara Filet’s PhD thesis). Everything is documented but the package needs at least an introductory vignette.</p>
+<p>I will present results obtained with the package at the forthcoming <a href="https://2025.caaconference.org/">CAA conference</a> in Athens.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>R</category>
+  <category>blvim</category>
+  <category>Boltzmann–Lotka–Volterra Interaction Model</category>
+  <guid>https://fabrice-rossi.github.io/blog/posts/blvim-alpha.html</guid>
+  <pubDate>Sat, 19 Apr 2025 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Second release of mixvlmc</title>
   <link>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-2.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -57,6 +117,7 @@
   <title>First release of mixvlmc</title>
   <link>https://fabrice-rossi.github.io/blog/posts/mixvlmc-0-1.html</link>
   <description><![CDATA[ 
+
 
 
 
