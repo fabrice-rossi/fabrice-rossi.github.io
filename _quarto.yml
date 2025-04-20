@@ -1,5 +1,7 @@
 project:
   type: website
+execute:
+  freeze: auto
 
 website:
   title: "Fabrice Rossi"
@@ -14,6 +16,7 @@ website:
     right:
       - icon: rss
         href: blog/index.xml
+  draft-mode: gone
 
 format:
   html:
