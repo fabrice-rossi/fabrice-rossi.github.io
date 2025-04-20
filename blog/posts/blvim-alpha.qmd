@@ -88,7 +88,7 @@ instance the estimated area of locations.
 
 In my research work, using BLV models is the natural next step after evaluating
 carefully travel costs with the method presented in my recent paper with [Clara Filet](https://orcid.org/0000-0002-5077-5213): 
-[On the roads and rivers of Late Iron Age Gaul: Adjusting least-cost path analysis to multiple means of transport and imprecise data](https://lnkd.in/ejAuZj_F).
+[On the roads and rivers of Late Iron Age Gaul: Adjusting least-cost path analysis to multiple means of transport and imprecise data](https://authors.elsevier.com/c/1kq6515SlU4bn7).
 
 ## State of the package
 The alpha version of the [blvim](https://github.com/fabrice-rossi/blvim) should be
