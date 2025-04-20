@@ -50,7 +50,7 @@
 <li><a href="https://doi.org/10.3389/fdigh.2017.00008">Was Thebes Necessary? Contingency in Spatial Modeling</a></li>
 </ul>
 <p>The main strength of the model is that it relies only on distances or travel costs between locations, making it very relevant for ancient mobility when material evidence is scarce. When we have only costs (the <img src="https://latex.codecogs.com/png.latex?c"> matrix), we generally initialise the BLV model with unitary attractivenesses (and productions). This can be refined using for instance the estimated area of locations.</p>
-<p>In my research work, using BLV models is the natural next step after evaluating carefully travel costs with the method presented in my recent paper with <a href="https://orcid.org/0000-0002-5077-5213">Clara Filet</a>: <a href="https://lnkd.in/ejAuZj_F">On the roads and rivers of Late Iron Age Gaul: Adjusting least-cost path analysis to multiple means of transport and imprecise data</a>.</p>
+<p>In my research work, using BLV models is the natural next step after evaluating carefully travel costs with the method presented in my recent paper with <a href="https://orcid.org/0000-0002-5077-5213">Clara Filet</a>: <a href="https://authors.elsevier.com/c/1kq6515SlU4bn7">On the roads and rivers of Late Iron Age Gaul: Adjusting least-cost path analysis to multiple means of transport and imprecise data</a>.</p>
 </section>
 </section>
 <section id="state-of-the-package" class="level2">
