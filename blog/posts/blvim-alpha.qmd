@@ -68,7 +68,7 @@ in $Z$, we iterate basic updates
 $$
 \forall j, Z_j^{t+1} = Z_j^{t} + \epsilon (D^{t}_j-\kappa Z^{t}_j),
 $$
-using as small value for $\epsilon$ to avoid instabilities. 
+using a small value for $\epsilon$ to avoid instabilities. 
 
 ### BLV in archaeology
 This approach has been quite successful 
