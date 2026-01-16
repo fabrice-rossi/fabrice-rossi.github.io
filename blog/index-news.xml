@@ -9,8 +9,36 @@
 <link>https://fabrice-rossi.github.io/blog/#category=news</link>
 <atom:link href="https://fabrice-rossi.github.io/blog/index-news.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.6.39</generator>
-<lastBuildDate>Sat, 19 Apr 2025 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Wed, 31 Mar 2027 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>First release of blvim</title>
+  <link>https://fabrice-rossi.github.io/blog/posts/blvim-0-1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am proud to announce the first release of <a href="https://cran.r-project.org/package=blvim">blvim</a>, version 0.1.1. The package provide a fast implementation of Alan Wilson’s <a href="http://dx.doi.org/10.1098/rsif.2007.1288">Boltzmann–Lotka–Volterra</a> (BLV) interaction model (which are quite popular in <a href="../../blog/posts/blvim-alpha.html#archaeology">archaeology</a>). The code is hosted on <a href="https://github.com/fabrice-rossi/blvim">github</a> and the package is also available on <a href="https://fabrice-rossi.r-universe.dev/blvim">R-universe</a>.</p>
+<p>The package has been extensively tested (with a <a href="https://app.codecov.io/gh/fabrice-rossi/blvim">100% code coverage</a>). It comes with a short introduction readme, a thorough documentation and two vignettes:</p>
+<ul>
+<li>a <a href="https://fabrice-rossi.github.io/blvim/articles/theory.html">theoretical background</a> which summarises the main concepts used in the model (which a selected bibliography)</li>
+<li>a <a href="https://fabrice-rossi.github.io/blvim/articles/grid.html">extensive demonstration</a> of the exploration features of the package that illustrate the recommended methodology for BLV results analysis</li>
+</ul>
+<p>I have also included in the package a interesting data set, the 121 <a href="https://fabrice-rossi.github.io/blvim/reference/french_cities.html">French cities</a> with more than 50,000 inhabitants (in 2022). I have used the <a href="https://project-osrm.org/">OSRM</a> engine to compute road based <a href="https://fabrice-rossi.github.io/blvim/reference/french_cities_distances.html">distances</a> between those cites using <a href="https://www.openstreetmap.org/">OpenStreetMap</a> data.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>R</category>
+  <category>blvim</category>
+  <category>Boltzmann–Lotka–Volterra Interaction Model</category>
+  <category>CRAN</category>
+  <guid>https://fabrice-rossi.github.io/blog/posts/blvim-0-1.html</guid>
+  <pubDate>Wed, 31 Mar 2027 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>New package in alpha: blvim</title>
   <link>https://fabrice-rossi.github.io/blog/posts/blvim-alpha.html</link>
@@ -39,8 +67,8 @@
 <h3 class="anchored" data-anchor-id="blv-model">BLV model</h3>
 <p>The core assumption of the BLV model is that the destination flows should be proportional to the attractivenesses. Given a flow matrix <img src="https://latex.codecogs.com/png.latex?Y">, the destination flows are collected in a vector <img src="https://latex.codecogs.com/png.latex?D"> of size p, with <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%5Cquad%20D_j=%5Csum_%7Bi=1%7D%5E%7Bn%7DY_%7Bij%7D.%0A"> At equilibrium, we want <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%5Cquad%20D_j=%5Ckappa%20Z_j,%0A"> for a given proportionality constant <img src="https://latex.codecogs.com/png.latex?%5Ckappa">. To solve this fixed point equation in <img src="https://latex.codecogs.com/png.latex?Z">, we iterate basic updates <img src="https://latex.codecogs.com/png.latex?%0A%5Cforall%20j,%20Z_j%5E%7Bt+1%7D%20=%20Z_j%5E%7Bt%7D%20+%20%5Cepsilon%20(D%5E%7Bt%7D_j-%5Ckappa%20Z%5E%7Bt%7D_j),%0A"> using a small value for <img src="https://latex.codecogs.com/png.latex?%5Cepsilon"> to avoid instabilities.</p>
 </section>
-<section id="blv-in-archaeology" class="level3">
-<h3 class="anchored" data-anchor-id="blv-in-archaeology">BLV in archaeology</h3>
+<section id="archaeology" class="level3">
+<h3 class="anchored" data-anchor-id="archaeology">BLV in archaeology</h3>
 <p>This approach has been quite successful in archaeology as seen in this selection of papers:</p>
 <ul>
 <li><a href="https://www.persee.fr/doc/hism_0982-1783_1987_num_2_1_1300">Spatial Interaction and Structural Models in Historical Analysis</a></li>
