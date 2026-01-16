@@ -10,7 +10,7 @@
 <atom:link href="https://fabrice-rossi.github.io/blog/index-news.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Wed, 31 Mar 2027 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 15 Jan 2026 23:00:00 GMT</lastBuildDate>
 <item>
   <title>First release of blvim</title>
   <link>https://fabrice-rossi.github.io/blog/posts/blvim-0-1.html</link>
@@ -37,7 +37,7 @@
   <category>Boltzmann–Lotka–Volterra Interaction Model</category>
   <category>CRAN</category>
   <guid>https://fabrice-rossi.github.io/blog/posts/blvim-0-1.html</guid>
-  <pubDate>Wed, 31 Mar 2027 22:00:00 GMT</pubDate>
+  <pubDate>Thu, 15 Jan 2026 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>New package in alpha: blvim</title>
