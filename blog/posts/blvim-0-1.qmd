@@ -1,7 +1,7 @@
 ---
 title: "First release of blvim"
 description: "blvim 0.1.1 is available on the CRAN!"
-date: "16/01/2026"
+date: "01/16/2026"
 categories:
   - news
   - code
