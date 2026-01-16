@@ -5,3 +5,4 @@
 /.quarto/
 /_site/
 diving.xcf
+**/*.quarto_ipynb
