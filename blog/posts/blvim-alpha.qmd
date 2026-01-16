@@ -70,7 +70,7 @@ $$
 $$
 using a small value for $\epsilon$ to avoid instabilities. 
 
-### BLV in archaeology
+### BLV in archaeology {#archaeology}
 This approach has been quite successful 
 in archaeology as seen in this selection of papers:
 

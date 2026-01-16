@@ -1,0 +1,38 @@
+---
+title: "First release of blvim"
+description: "blvim 0.1.1 is available on the CRAN!"
+date: "16/01/2026"
+categories:
+  - news
+  - code
+  - R
+  - blvim
+  - Boltzmann–Lotka–Volterra Interaction Model
+  - CRAN
+---
+
+I am proud to announce the first release of
+[blvim](https://cran.r-project.org/package=blvim), version 0.1.1. The package 
+provide a fast implementation of Alan Wilson’s 
+[Boltzmann–Lotka–Volterra](http://dx.doi.org/10.1098/rsif.2007.1288) (BLV) 
+interaction model (which are quite popular in [archaeology](blvim-alpha.qmd#archaeology)). The code is hosted on 
+[github](https://github.com/fabrice-rossi/blvim) and the package is also
+available on [R-universe](https://fabrice-rossi.r-universe.dev/blvim). 
+
+The package has been extensively tested (with a 
+[100% code coverage](https://app.codecov.io/gh/fabrice-rossi/blvim)). It comes
+with a short introduction readme, a thorough documentation and two vignettes:
+
+- a [theoretical background](https://fabrice-rossi.github.io/blvim/articles/theory.html)
+which summarises the main concepts used in the model (which a selected 
+bibliography)
+- a [extensive demonstration](https://fabrice-rossi.github.io/blvim/articles/grid.html)
+of the exploration features of the package that illustrate the recommended 
+methodology for BLV results analysis
+
+I have also included in the package a interesting data set, the 121 
+[French cities](https://fabrice-rossi.github.io/blvim/reference/french_cities.html) 
+with more than 50,000 inhabitants (in 2022). I have used the 
+[OSRM](https://project-osrm.org/) engine to compute road based 
+[distances](https://fabrice-rossi.github.io/blvim/reference/french_cities_distances.html) 
+between those cites using [OpenStreetMap](https://www.openstreetmap.org/) data.
